@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t rsadr1ev/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run rsadr1ev/docker-react npm run test -- --coverage
